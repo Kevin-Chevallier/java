@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <body>
+        <input type="text" id="text">
+        <button onclick="addElement()" id="add">Ajouter</button>
+         <button onclick="annuler()" id="annuler">Annuler</button>
+        <ul id="list"></ul>
+            <script>
+                var $text = document.getElementById("text");
+                var $list = document.getElementById("list");
+                var table = ["Pierre","Paul","Jacques"];
+
+                    function displaylist() {
+                     var elements = "";                                  //Variable locale
+                      for (var i = 0; i < table.length; i++) {          //Parcours auto du tableau
+                      elements += "<li>" + table[i] + "</li>";
+                                                 }
+                     $list.innerHTML = elements;
+}
+                     function addElement() {
+                     table.push($text.value);
+                     displaylist();
+                     $text.value = '';
+}
+                    function annuler() {
+                    table.pop();
+                    displaylist();
+            }
+                    
+displaylist();
+            </script>
+    </body>
+</html>
