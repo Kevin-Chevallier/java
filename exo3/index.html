@@ -1,0 +1,45 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ex.3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <ul id="list">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+  </ul>
+  
+  <button id="erase">Supprimer</button>
+  <button id="restore">Restaurer</button>
+  <script>
+  $list = document.getElementById("list");
+$erase = document.getElementById("erase");
+$restore = document.getElementById("restore");
+
+function select(e) {
+    e.target.classList.toggle("selected");
+}
+
+function erase() {
+    for (i = 0; i < $list.children.length; i++) {
+        if ($list.children[i].classList.contains("selected")) {
+            $list.children[i].classList.add("trashcan");
+        }
+    }
+}
+
+function restore() {
+    for (i = 0; i < $list.children.length; i++) {
+        $list.children[i].classList.remove("trashcan");
+    }
+}
+
+$list.onclick = select;
+$erase.onclick = erase;
+$restore.onclick = restore;
+  </script>
+</body>
